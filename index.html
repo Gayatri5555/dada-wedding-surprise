@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brother's Wedding Surprise! 🎉</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- LOGIN PAGE -->
+  <div id="loginPage" class="page active">
+    <div class="login-container">
+      <div class="emoji-bounce">👰💍🤵</div>
+      <h1 class="login-title">Access Wedding Secret! 🔐</h1>
+      <p class="login-subtitle">Only the coolest siblings can see this...</p>
+      
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="input-group">
+          <input 
+            type="text" 
+            id="username" 
+            placeholder="What's your brother's nickname?" 
+            required
+            class="login-input"
+          >
+        </div>
+        <div class="input-group">
+          <input 
+            type="password" 
+            id="password" 
+            placeholder="Wedding date or his favorite number?" 
+            required
+            class="login-input"
+          >
+        </div>
+        <button type="submit" class="login-btn">UNLOCK THE SURPRISE! 🚀</button>
+      </form>
+      
+      <p class="hint">💡 Hint: Username is his nickname, Password is something special to him</p>
+      <p class="demo-hint">🎮 Demo: username: "bro" | password: "2026"</p>
+    </div>
+  </div>
+
+  <!-- SURPRISE PAGE -->
+  <div id="surprisePage" class="page hidden">
+    <!-- Netflix-style Trailer -->
+    <div id="trailerSection" class="trailer-section">
+      <div class="netflix-header">
+        <h1 class="netflix-title">🎬 DADA WEDDING 🎬</h1>
+        <p class="tagline">A boy who said "I'll never marry"… finally got trapped! 💍😂</p>
+        <button class="play-btn" onclick="showSurprise()">▶ PLAY SURPRISE</button>
+        <button class="logout-btn" onclick="logout()">← Back to Login</button>
+      </div>
+    </div>
+
+    <!-- Main Surprise Content -->
+    <div id="surpriseContent" class="hidden">
+      <!-- Cartoon Banner -->
+      <div class="surprise-banner">
+        <h2 class="surprise-title">🎉 CONGRATULATIONS BROTHER! 🎉</h2>
+        <p class="surprise-text">You're officially off the market! 🚀</p>
+      </div>
+
+      <!-- Funny Messages Carousel -->
+      <div class="messages-container">
+        <div class="message-card active">
+          <div class="cartoon-emoji">😂</div>
+          <p>"Finally found someone brave enough to say YES!"</p>
+        </div>
+        <div class="message-card">
+          <div class="cartoon-emoji">🎊</div>
+          <p>"This is the most shocking twist since you got that haircut!"</p>
+        </div>
+        <div class="message-card">
+          <div class="cartoon-emoji">💍</div>
+          <p>"Ring size: Unknown • IQ after proposal: ZERO 😜"</p>
+        </div>
+        <div class="message-card">
+          <div class="cartoon-emoji">🎈</div>
+          <p>"Plot twist: He actually showed up on time!"</p>
+        </div>
+      </div>
+
+      <!-- Photo Gallery -->
+      <div class="gallery-section">
+        <h3>📸 Your Greatest Adventure Awaits</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="photos/dada-groom.svg" alt="Nervous Groom" class="gallery-image">
+            <p>The nervous dada! 😰</p>
+          </div>
+          <div class="gallery-item">
+            <img src="photos/vahini-bride.svg" alt="Happy Bride" class="gallery-image">
+            <p>The beautiful vahini! 💕</p>
+          </div>
+          <div class="gallery-item">
+            <img src="photos/running-groom.svg" alt="Running Away" class="gallery-image">
+            <p>RUN AWAY!! 💨</p>
+          </div>
+          <div class="gallery-item">
+            <img src="photos/crying-emotional.svg" alt="Emotional Moment" class="gallery-image">
+            <p>So many tears! 😭</p>
+          </div>
+          <div class="gallery-item">
+            <img src="photos/dancing-couple.svg" alt="Dancing" class="gallery-image">
+            <p>First dance magic! 💃🕺</p>
+          </div>
+          <div class="gallery-item">
+            <img src="photos/chaos-wedding.svg" alt="Wedding Chaos" class="gallery-image">
+            <p>Total madness! 🎪🔥</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fun Facts -->
+      <div class="fun-facts">
+        <h3>🤓 Wedding Day Facts</h3>
+        <div class="facts-grid">
+          <div class="fact-card">
+            <span class="fact-number">99%</span>
+            <p>Chance he'll cry (but won't admit it)</p>
+          </div>
+          <div class="fact-card">
+            <span class="fact-number">100%</span>
+            <p>Chance someone will mess up the vows</p>
+          </div>
+          <div class="fact-card">
+            <span class="fact-number">∞</span>
+            <p>Amount of teasing he'll face forever</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Countdown Timer -->
+      <div class="countdown-section">
+        <h3>⏰ Time Until "I DO"</h3>
+        <div id="countdown" class="countdown">
+          <div class="time-unit">
+            <div class="time-value" id="days">0</div>
+            <div class="time-label">Days</div>
+          </div>
+          <div class="time-unit">
+            <div class="time-value" id="hours">0</div>
+            <div class="time-label">Hours</div>
+          </div>
+          <div class="time-unit">
+            <div class="time-value" id="minutes">0</div>
+            <div class="time-label">Minutes</div>
+          </div>
+          <div class="time-unit">
+            <div class="time-value" id="seconds">0</div>
+            <div class="time-label">Seconds</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Special Message -->
+      <div class="special-message">
+        <h3>💌 From Your Family</h3>
+        <p>We're thrilled for you! Get ready for the best adventure of your life. 
+           This website is just a taste of all the laughter and love waiting for you! 
+           See you at the altar, you crazy dude! 😄</p>
+        <p class="signature">👨‍👩‍👧‍👦 Your Awesome Family</p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="share-btn" onclick="shareJoy()">📤 Share the Joy!</button>
+        <button class="photos-btn" onclick="galleryMode()">🖼️ Gallery Mode</button>
+        <button class="logout-btn" onclick="logout()">🚪 Exit</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
